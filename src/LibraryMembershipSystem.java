@@ -416,6 +416,47 @@ public class LibraryMembershipSystem {
         // More complex report logic can be added here
     }
 
+    static void borrowBook(List<MemberInfo> members, Scanner scanner) {
+        System.out.println("\n--- Borrow Book ---");
+        System.out.print("Enter member ID: ");
+        String memberId = scanner.nextLine();
 
+        MemberInfo member = findMemberById(members, memberId);
+        if (member == null) {
+            System.out.println("Member with ID " + memberId + " not found.");
+            return;
+        }
 
+        System.out.print("Enter book title: ");
+        String bookTitle = scanner.nextLine();
+
+        BookBorrowed bookBorrowed = new BookBorrowed(bookTitle, LocalDate.now());
+        member.borrowedBooks.add(bookBorrowed);
+        System.out.println("Book '" + bookTitle + "' borrowed successfully by member " + member.firstName + " " + member.lastName + ".");
+    }
+
+    static MemberInfo findMemberById(List<MemberInfo> members, String id) {
+        for (MemberInfo member : members) {
+            if (member.memberId.equals(id)) {
+                return member;
+            }
+        }
+        return null;
+    }
+
+    static boolean isValidEmail(String email) {
+        return email.endsWith("@gmail.com");
+    }
+
+    static boolean isValidName(String name) {
+        return name.matches("[a-zA-Z]+");
+    }
+
+    static boolean isValidPhone(String phone) {
+        return phone.matches("[0-9]+");
+    }
+
+    static boolean isValidId(String id) {
+        return id.matches("[0-9]+");
+    }
 }
