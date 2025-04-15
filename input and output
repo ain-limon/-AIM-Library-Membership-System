@@ -1,0 +1,127 @@
+--- Library Membership Management System ---
+1. Register New Member
+2. View Member Information
+3. Update Member Information
+4. Delete Member
+5. Display All Members
+6. Find Member by Name
+7. Save Data
+8. Generate Report
+9. Borrow Book
+10. Exit
+Enter your choice: 1
+
+--- Register New Member ---
+Enter member ID (only digits): 240106002
+Enter first name (only letters): Isa
+Enter last name (only letters): Kerimzhanov
+Enter email (must end with @gmail.com): Kerimzhanov@gmail.com
+Enter phone number (only digits): 034567345678
+Enter address: 5-4-3
+Borrow a book now? (yes/no): no
+Member Isa Kerimzhanov registered successfully with ID: 240106002
+
+--- Library Membership Management System ---
+...
+Enter your choice: 7
+Data saved successfully to members.csv
+
+--- Library Membership Management System ---
+...
+Enter your choice: 2
+
+--- View Member Information ---
+Enter member ID to view: 240106019
+Member Information:
+ID: 240106019, Name: Aizirek Docturbek, Email: Docturbek@gmail.com, Phone: 0703674937, Address: 794-55-7
+  Borrowed Books:
+    - last chance (Borrowed on: 2025-04-15)
+
+--- Library Membership Management System ---
+...
+Enter your choice: 3
+
+--- Update Member Information ---
+Enter member ID to update: 240106002
+Current information for member:
+ID: 240106002, Name: Isa Kerimzhanov, Email: Kerimzhanov@gmail.com, Phone: 034567345678, Address: 5-4-3
+Enter new first name (only letters, leave blank to keep):
+Enter new last name (only letters, leave blank to keep):
+Enter new email (must end with @gmail.com, leave blank to keep):
+Enter new phone number (only digits, leave blank to keep):
+Enter new address (leave blank to keep): Achunbaeva 45
+Member information with ID 240106002 updated successfully.
+
+--- Library Membership Management System ---
+...
+Enter your choice: 4
+
+--- Delete Member ---
+Enter member ID to delete: 240106002
+Member with ID 240106002 deleted successfully.
+
+--- Library Membership Management System ---
+...
+Enter your choice: 5
+
+--- List of All Members ---
+ID: 240106040, Name: Aidena Isakova, Email: ainlimon0@gmail.com, Phone: 0703366004, Address: 4-29-6
+  Borrowed Books:
+    - Rose (Borrowed on: 2025-04-15)
+ID: 240106019, Name: Aizirek Docturbek, Email: Docturbek@gmail.com, Phone: 0703674937, Address: 794-55-7
+  Borrowed Books:
+    - last chance (Borrowed on: 2025-04-15)
+ID: 24010601, Name: Nurdin Ametov, Email: Ametov@gmail.com, Phone: 0507989866, Address: Ankara 45
+ID: 240106034, Name: Nazimay Karbinova, Email: Karbinova@gmail.com, Phone: 04567876543, Address: 4-5-2
+ID: 240106005, Name: Seil Chokushova, Email: sss@gmail.com, Phone: 03456788765, Address: Chuy 345
+  Borrowed Books:
+    - Musikly (Borrowed on: 2025-04-15)
+ID: 240106028, Name: Fatima Kasmaly, Email: drunkfabe@gmail.com, Phone: 050037554060, Address: frunze 300
+  Borrowed Books:
+    - Java  (Borrowed on: 2025-04-15)
+ID: 240106026, Name: Milena Subanova, Email: milena.subanova@gmail.com, Phone: 0226838370, Address: suyumbaeva 144
+ID: 240142010, Name: Amina Abdurakhmanova, Email: Abdurakhmanova@gmail.com, Phone: 070335594, Address: 7-8-5
+ID: 240106023, Name: Zhasmina Berdibekova, Email: Zhasmina@gmail.com, Phone: 0705628465, Address: gogol-18
+  Borrowed Books:
+    - Three (Borrowed on: 2025-04-15)
+ID: 240103007, Name: Baktiiyar Barkhatbekov, Email: baktiiyar.barhat@gmail.com, Phone: 034567856, Address: Gogolya 14
+  Borrowed Books:
+    - Mom can  (Borrowed on: 2025-04-15)
+ID: 240104025, Name: Mariyam Toichubekova, Email: maryam.toichubekova@gmail.com, Phone: 0555737280, Address: Ahunbaeva 175
+  Borrowed Books:
+    - Looked u (Borrowed on: 2025-04-15)
+ID: 240103011, Name: Yasmin Musabaeva, Email: yasmin.musabaeva@gmail.com, Phone: 0706575738, Address: Abdumomunova 34
+  Borrowed Books:
+    - Laptop (Borrowed on: 2025-04-15)
+
+--- Library Membership Management System ---
+...
+Enter your choice: 6
+
+--- Find Member by Name ---
+Enter name to search: Aidena
+Found Members:
+ID: 240106040, Name: Aidena Isakova, Email: ainlimon0@gmail.com, Phone: 0703366004, Address: 4-29-6
+  Borrowed Books:
+    - Rose (Borrowed on: 2025-04-15)
+
+--- Library Membership Management System ---
+...
+Enter your choice: 8
+
+--- Generate Report ---
+Total number of members: 12
+
+--- Library Membership Management System ---
+...
+Enter your choice: 9
+
+--- Borrow Book ---
+Enter member ID: 240106026
+Enter book title: Phone
+Book 'Phone' borrowed successfully by member Milena Subanova.
+
+--- Library Membership Management System ---
+...
+Enter your choice: 10
+Exiting the system. Goodbye!
