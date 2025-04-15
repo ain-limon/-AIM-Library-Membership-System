@@ -261,5 +261,105 @@ public class LibraryMembershipSystem {
         System.out.println("Member with ID " + searchId + " not found.");
     }
 
+    static void updateMemberInfo(List<MemberInfo> members, Scanner scanner) {
+        System.out.println("\n--- Update Member Information ---");
+        System.out.print("Enter member ID to update: ");
+        String updateId = scanner.nextLine();
+
+        for (MemberInfo member : members) {
+            if (member.memberId.equals(updateId)) {
+                System.out.println("Current information for member:\n" + member);
+
+                String newFirstName = member.firstName;
+                while (true) {
+                    System.out.print("Enter new first name (only letters, leave blank to keep): ");
+                    String input = scanner.nextLine();
+                    if (input.isEmpty() || isValidName(input)) {
+                        newFirstName = input.isEmpty() ? newFirstName : input;
+                        break;
+                    } else {
+                        System.out.println("Invalid first name. Please enter only letters.");
+                    }
+                }
+                member.firstName = newFirstName;
+
+                String newLastName = member.lastName;
+                while (true) {
+                    System.out.print("Enter new last name (only letters, leave blank to keep): ");
+                    String input = scanner.nextLine();
+                    if (input.isEmpty() || isValidName(input)) {
+                        newLastName = input.isEmpty() ? newLastName : input;
+                        break;
+                    } else {
+                        System.out.println("Invalid last name. Please enter only letters.");
+                    }
+                }
+                member.lastName = newLastName;
+
+                String newEmail = member.email;
+                while (true) {
+                    System.out.print("Enter new email (must end with @gmail.com, leave blank to keep): ");
+                    String input = scanner.nextLine();
+                    if (input.isEmpty() || isValidEmail(input)) {
+                        newEmail = input.isEmpty() ? newEmail : input;
+                        break;
+                    } else {
+                        System.out.println("Invalid email format. Please ensure it ends with @gmail.com.");
+                    }
+                }
+                member.email = newEmail;
+
+                String newPhoneNumber = member.phoneNumber;
+                while (true) {
+                    System.out.print("Enter new phone number (only digits, leave blank to keep): ");
+                    String input = scanner.nextLine();
+                    if (input.isEmpty() || isValidPhone(input)) {
+                        newPhoneNumber = input.isEmpty() ? newPhoneNumber : input;
+                        break;
+                    } else {
+                        System.out.println("Invalid phone number. Please enter only digits.");
+                    }
+                }
+                member.phoneNumber = newPhoneNumber;
+
+                System.out.print("Enter new address (leave blank to keep): ");
+                String newAddress = scanner.nextLine();
+                if (!newAddress.isEmpty()) member.address = newAddress;
+
+                System.out.println("Member information with ID " + updateId + " updated successfully.");
+                return;
+            }
+        }
+        System.out.println("Member with ID " + updateId + " not found.");
+    }
+
+    static void deleteMember(List<MemberInfo> members, Scanner scanner) {
+        System.out.println("\n--- Delete Member ---");
+        System.out.print("Enter member ID to delete: ");
+        String deleteId = scanner.nextLine();
+
+        java.util.Iterator<MemberInfo> iterator = members.iterator();
+        while (iterator.hasNext()) {
+            MemberInfo member = iterator.next();
+            if (member.memberId.equals(deleteId)) {
+                iterator.remove();
+                System.out.println("Member with ID " + deleteId + " deleted successfully.");
+                return;
+            }
+        }
+        System.out.println("Member with ID " + deleteId + " not found.");
+    }
+
+    static void displayAllMembers(List<MemberInfo> members) {
+        System.out.println("\n--- List of All Members ---");
+        if (members.isEmpty()) {
+            System.out.println("No members registered in the library yet.");
+            return;
+        }
+        for (MemberInfo member : members) {
+            System.out.println(member);
+        }
+    }
+
 
 }
