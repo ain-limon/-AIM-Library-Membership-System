@@ -361,5 +361,61 @@ public class LibraryMembershipSystem {
         }
     }
 
+    static void findMemberByName(List<MemberInfo> members, Scanner scanner) {
+        System.out.println("\n--- Find Member by Name ---");
+        System.out.print("Enter name to search: ");
+        String searchName = scanner.nextLine().toLowerCase();
+
+        List<MemberInfo> foundMembers = new ArrayList<>();
+        for (MemberInfo member : members) {
+            if (member.firstName.toLowerCase().contains(searchName) || member.lastName.toLowerCase().contains(searchName)) {
+                foundMembers.add(member);
+            }
+        }
+
+        if (foundMembers.isEmpty()) {
+            System.out.println("Members with the name '" + searchName + "' not found.");
+        } else {
+            System.out.println("Found Members:");
+            for (MemberInfo foundMember : foundMembers) {
+                System.out.println(foundMember);
+            }
+        }
+    }
+
+    static void saveMembersToFile(List<MemberInfo> members) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(DATA_FILE))) {
+            for (MemberInfo member : members) {
+                writer.println(member.toCsvString());
+            }
+            System.out.println("Data saved successfully to " + DATA_FILE);
+        } catch (IOException e) {
+            System.err.println("Error saving data to file: " + e.getMessage());
+        }
+    }
+
+    static List<MemberInfo> loadMembersFromFile() {
+        List<MemberInfo> members = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(DATA_FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                MemberInfo member = MemberInfo.fromCsvString(line);
+                if (member != null) {
+                    members.add(member);
+                }
+            }
+        } catch (IOException e) {
+            // File not found or error reading, start with an empty list
+        }
+        return members;
+    }
+
+    static void generateReport(List<MemberInfo> members) {
+        System.out.println("\n--- Generate Report ---");
+        System.out.println("Total number of members: " + members.size());
+        // More complex report logic can be added here
+    }
+
+
 
 }
