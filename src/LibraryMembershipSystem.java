@@ -167,4 +167,99 @@ public class LibraryMembershipSystem {
         }
     }
 
-   }
+    static void registerNewMember(List<MemberInfo> members, Scanner scanner) {
+        System.out.println("\n--- Register New Member ---");
+
+        String memberId;
+        while (true) {
+            System.out.print("Enter member ID (only digits): ");
+            memberId = scanner.nextLine();
+            if (isValidId(memberId)) {
+                break;
+            } else {
+                System.out.println("Invalid ID. Please enter only digits.");
+            }
+        }
+
+        String firstName;
+        while (true) {
+            System.out.print("Enter first name (only letters): ");
+            firstName = scanner.nextLine();
+            if (isValidName(firstName)) {
+                break;
+            } else {
+                System.out.println("Invalid first name. Please enter only letters.");
+            }
+        }
+
+        String lastName;
+        while (true) {
+            System.out.print("Enter last name (only letters): ");
+            lastName = scanner.nextLine();
+            if (isValidName(lastName)) {
+                break;
+            } else {
+                System.out.println("Invalid last name. Please enter only letters.");
+            }
+        }
+
+        String email;
+        while (true) {
+            System.out.print("Enter email (must end with @gmail.com): ");
+            email = scanner.nextLine();
+            if (isValidEmail(email)) {
+                break;
+            } else {
+                System.out.println("Invalid email format. Please ensure it ends with @gmail.com.");
+            }
+        }
+
+        String phoneNumber;
+        while (true) {
+            System.out.print("Enter phone number (only digits): ");
+            phoneNumber = scanner.nextLine();
+            if (isValidPhone(phoneNumber)) {
+                break;
+            } else {
+                System.out.println("Invalid phone number. Please enter only digits.");
+            }
+        }
+
+        System.out.print("Enter address: ");
+        String address = scanner.nextLine();
+
+        MemberInfo newMember = new MemberInfo(memberId, firstName, lastName, email, phoneNumber, address);
+
+        System.out.print("Borrow a book now? (yes/no): ");
+        String borrowChoice = scanner.nextLine().toLowerCase();
+
+        if (borrowChoice.equals("yes")) {
+            System.out.print("Enter title of the book to borrow: ");
+            String bookTitle = scanner.nextLine();
+            if (!bookTitle.isEmpty()) {
+                BookBorrowed bookBorrowed = new BookBorrowed(bookTitle, LocalDate.now());
+                newMember.borrowedBooks.add(bookBorrowed);
+                System.out.println("Book '" + bookTitle + "' added to borrowed list for " + firstName + " " + lastName + ".");
+            }
+        }
+
+        members.add(newMember);
+        System.out.println("Member " + firstName + " " + lastName + " registered successfully with ID: " + memberId);
+    }
+
+    static void viewMemberInfo(List<MemberInfo> members, Scanner scanner) {
+        System.out.println("\n--- View Member Information ---");
+        System.out.print("Enter member ID to view: ");
+        String searchId = scanner.nextLine();
+
+        for (MemberInfo member : members) {
+            if (member.memberId.equals(searchId)) {
+                System.out.println("Member Information:\n" + member);
+                return;
+            }
+        }
+        System.out.println("Member with ID " + searchId + " not found.");
+    }
+
+
+}
