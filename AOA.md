@@ -94,12 +94,14 @@ This will launch the Library Membership System in the terminal, and you can inte
 12. **`isValidEmail(String email)`, `isValidName(String name)`, `isValidPhone(String phone)`, `isValidId(String id)`:**
     * Helper methods to validate the format of user input for email, name, phone number, and ID.
 
+  ## Error Handling
+
+The application performs input validation during member registration to ensure the correct format for member ID (digits only), first and last names (letters only), email (ends with "@gmail.com"), and phone number (digits only). If invalid input is provided, the user is prompted to re-enter the information. For operations involving member IDs (view, update, delete, borrow book), if an invalid or non-existent ID is entered, the application displays a "member not found" message.
+
 ## File Format
 
 The `members.csv` file stores member data with each line representing one member. The fields are comma-separated in the following order:
 
 ```csv
-memberId,firstName,lastName,email,phoneNumber,address,borrowedBook1Title|borrowDate1;borrowedBook2Title|borrowDate2;...
-## Error Handling
+memberId,firstName,lastName,email,phoneNumber,address,borrowedBook1Title|borrowDate1;borrowedBook2Title|borrowDate2.
 
-The application performs input validation during member registration to ensure the correct format for member ID (digits only), first and last names (letters only), email (ends with "@gmail.com"), and phone number (digits only). If invalid input is provided, the user is prompted to re-enter the information. For operations involving member IDs (view, update, delete, borrow book), if an invalid or non-existent ID is entered, the application displays a "member not found" message.
