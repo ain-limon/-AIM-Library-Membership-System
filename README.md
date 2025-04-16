@@ -97,6 +97,28 @@
    ## Error Handling
  
  The application performs input validation during member registration to ensure the correct format for member ID (digits only), first and last names (letters only), email (ends with "@gmail.com"), and phone number (digits only). If invalid input is provided, the user is prompted to re-enter the information. For operations involving member IDs (view, update, delete, borrow book), if an invalid or non-existent ID is entered, the application displays a "member not found" message.
+
+
+
+
+ ![image](https://github.com/user-attachments/assets/62b3f8a2-d7c8-4e55-8e85-e9d538997712)
+
+
+
+![image](https://github.com/user-attachments/assets/f2658131-eed6-44dd-91d5-06e369215856)
+
+
+![image](https://github.com/user-attachments/assets/e103b0b8-c5da-4e2a-8f63-d94e9717584b)
+
+
+![image](https://github.com/user-attachments/assets/7b6c1349-1586-4a45-9f25-c39b47261a34)
+
+
+![image](https://github.com/user-attachments/assets/21f15d7c-2480-4ae6-8cd5-56af0b13ffed)
+
+
+
+
  
  ## File Format
  
